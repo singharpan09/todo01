@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Edittodo from "./edittodo";
+//import Edittodo from "./edittodo";
 const DisplayList = (props) => {
   const { checked, name, id } = props.todo;
 
