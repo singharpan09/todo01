@@ -1,7 +1,12 @@
 import React from "react";
 
+import TODO from "./todo";
+
 function App() {
-  return <h1>This is a todo app</h1>;
+  return;
+  <React.Fragment>
+    <TODO />
+  </React.Fragment>;
 }
 
 export default App;
