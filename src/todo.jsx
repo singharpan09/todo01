@@ -22,7 +22,7 @@ class TODO extends Component {
       const newitem = {
         id: uuid(),
         name: newTodo,
-        checked: true,
+        checked: false,
       };
 
       const newList = [...this.state.todoList];
