@@ -47,33 +47,6 @@ class TODO extends Component {
     });
   };
 
-  handleDelete = (id) => {
-    const newList = [...this.state.todoList];
-
-    const updateList = newList.filter((item) => item.id !== id);
-    this.setState({
-      todoList: updateList,
-    });
-  };
-
-  handleEdit = (value) => {
-    const Edit = [...this.state.todoList];
-
-    const Index = Edit.indexOf(value);
-
-    Edit[Index] = { ...value };
-    Edit[Index].name = value.name;
-
-    //   const i = Edit.filter((i) => {
-    //     Edit.indexOf(value.id);
-    //   });
-    //   console.log(i);
-    this.setState({ todoList: Edit });
-  };
-  handleEditChange = (e) => {
-    console.log(e.target.value);
-  };
-
   render() {
     const { item, todoList } = this.state;
 
@@ -81,16 +54,28 @@ class TODO extends Component {
       <React.Fragment>
         <h1>Todo App</h1>
 
-        {todoList.map((todo) => (
-          <DisplayList
-            key={todo.id}
-            todo={todo}
-            onCheckboxChange={this.handleChecked}
-            handleEdit={this.handleEdit}
-            handleEditChange={this.handleEditChange}
-            deleteItem={this.handleDelete}
-          />
-        ))}
+        {todoList.map((todo) => {
+          if (todo.checked === true) {
+            return (
+              <DisplayList
+                key={todo.id}
+                todo={todo}
+                onCheckboxChange={this.handleChecked}
+              />
+            );
+          }
+        })}
+        {todoList.map((todo) => {
+          if (todo.checked === false) {
+            return (
+              <DisplayList
+                key={todo.id}
+                todo={todo}
+                onCheckboxChange={this.handleChecked}
+              />
+            );
+          }
+        })}
         <Form
           onInputChange={this.handleOnChange}
           item={item}
