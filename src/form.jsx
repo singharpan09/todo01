@@ -1,15 +1,16 @@
 import React from "react";
+import "./form.css";
 
 const Form = (props) => {
   const { item } = props;
-  const style = item.length === 0 ? "form-control is-invalid" : "form-control";
+
   return (
     <React.Fragment>
-      <form>
+      <form className="form">
         <input
-          className={style}
+          className="input"
           type="text"
-          placeholder="Enter todo..."
+          placeholder="Enter todo for the day..."
           value={item}
           onChange={props.onInputChange}
           required
@@ -17,7 +18,7 @@ const Form = (props) => {
         <br />
         <button
           disabled={!item.length}
-          className="btn btn-light"
+          className="btn btn-success"
           onClick={(e) => {
             props.submitTodo(e, item);
           }}
