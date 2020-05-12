@@ -101,7 +101,7 @@ class TODO extends Component {
                 );
               }
             })}
-            <h3>#Here_is_All_for_Day</h3>
+            <h3>#Here_is_All_for_the_Day</h3>
 
             {todoList.map((todo) => {
               if (todo.checked === false || todo.checked === true) {
