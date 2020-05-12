@@ -26,7 +26,7 @@ const DisplayList = (props) => {
             }}
           /> */}
 
-          <button
+          {/* <button
             style={{ "margin-left": "85%" }}
             className="btn btn-danger"
             onClick={() => {
@@ -34,7 +34,7 @@ const DisplayList = (props) => {
             }}
           >
             Delete
-          </button>
+          </button> */}
 
           {checked && (
             <div className="float-right">
