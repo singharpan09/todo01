@@ -53,18 +53,24 @@ class TODO extends Component {
     return (
       <React.Fragment>
         <h1>Todo App</h1>
-
+        <h3 style={{ color: "green" }}>Completed</h3>
+        <hr />
         {todoList.map((todo) => {
           if (todo.checked === true) {
             return (
-              <DisplayList
-                key={todo.id}
-                todo={todo}
-                onCheckboxChange={this.handleChecked}
-              />
+              <React.Fragment>
+                <DisplayList
+                  key={todo.id}
+                  todo={todo}
+                  onCheckboxChange={this.handleChecked}
+                  statue="Completed"
+                />
+              </React.Fragment>
             );
           }
         })}
+        <h3 style={{ color: "red" }}>Not Done</h3>
+        <hr />
         {todoList.map((todo) => {
           if (todo.checked === false) {
             return (
@@ -72,6 +78,21 @@ class TODO extends Component {
                 key={todo.id}
                 todo={todo}
                 onCheckboxChange={this.handleChecked}
+                statue="Not Done"
+              />
+            );
+          }
+        })}
+        <h3>All</h3>
+        <hr />
+        {todoList.map((todo) => {
+          if (todo.checked === false || todo.checked === true) {
+            return (
+              <DisplayList
+                key={todo.id}
+                todo={todo}
+                onCheckboxChange={this.handleChecked}
+                statue="All Todo for the day...."
               />
             );
           }
